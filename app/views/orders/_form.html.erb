@@ -1,0 +1,65 @@
+<%= form_with(model: order, class: "px-6 py-4 bg-slate-800 bg-opacity-80 rounded") do |form| %>
+  <div class="mb-4">
+    <%= form.label :name, style: "display: block", class: 'text-white text-sm' %>
+    <%= form.text_field :name, class: "w-full #{order.errors[:name].present? ? 'border-red-500' : ''}" %>
+    <% if order.errors[:name].present? %>
+      <div class="text-red-500 text-sm">
+        <%= order.errors.full_messages_for(:name).first  %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :phone_number, style: "display: block", class: 'text-white text-sm' %>
+    <%= form.text_field :phone_number, class: "w-full #{order.errors[:phone_number].present? ? 'border-red-500' : ''}" %>
+    <% if order.errors[:phone_number].present? %>
+      <div class="text-red-500">
+        <%= order.errors.full_messages_for(:phone_number).first  %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :shipping_address, style: "display: block", class: 'text-white text-sm' %>
+    <%= form.text_field :shipping_address, class: "w-full #{order.errors[:shipping_address].present? ? 'border-red-500' : ''}" %>
+    <% if order.errors[:shipping_address].present? %>
+      <div class="text-red-500 text-sm">
+        <%= order.errors.full_messages_for(:shipping_address).first  %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :quantity, style: "display: block", class: 'text-white text-sm' %>
+    <%= form.number_field :quantity, class: "w-full #{order.errors[:quantity].present? ? 'border-red-500' : ''}"  %>
+    <% if order.errors[:quantity].present? %>
+      <div class="text-red-500 text-sm">
+        <%= order.errors.full_messages_for(:quantity).first  %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :bank_account_number, style: "display: block", class: 'text-white text-sm' %>
+    <%= form.text_field :bank_account_number, class: "w-full #{order.errors[:bank_account_number].present? ? 'border-red-500' : ''}" %>
+    <% if order.errors[:bank_account_number].present? %>
+      <div class="text-red-500 text-sm">
+        <%= order.errors.full_messages_for(:bank_account_number).first  %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :bank_name, style: "display: block", class: 'text-white text-sm' %>
+    <%= form.text_field :bank_name, class: "w-full #{order.errors[:bank_name].present? ? 'border-red-500' : ''}" %>
+    <% if order.errors[:bank_name].present? %>
+      <div class="text-red-500 text-sm">
+        <%= order.errors.full_messages_for(:bank_name).first  %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit t('.book_now'), class: 'w-full btn-primary uppercase py-4 bg-slate-500 text-white' %>
+  </div>
+<% end %>

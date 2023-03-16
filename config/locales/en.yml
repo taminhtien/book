@@ -1,0 +1,16 @@
+en:
+  errors:
+    messages:
+      blank: không thể để trống
+  activerecord:
+    attributes:
+      order:
+        name: Họ và Tên
+        phone_number: Số điện thoại
+        shipping_address: Địa chỉ nhận hàng
+        quantity: Số lượng
+        bank_account_number: Số tài khoản ngân hàng
+        bank_name: Tên ngân hàng
+  orders:
+    form:
+      book_now: Đặt ngay

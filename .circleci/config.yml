@@ -9,11 +9,11 @@ jobs:
       - checkout
 
       - deploy:
-          name: Deploy to remote server
+          name: Pull latest source code
           command: |
-            ssh -o StrictHostKeyChecking=no user@your-remote-server "cd app && git pull origin master"
+            ssh -o StrictHostKeyChecking=no root@161.35.193.239 "cd app/book && git pull origin master"
 
       - deploy:
-          name: Run script on remote server
+          name: Start application
           command: |
-            ssh -o StrictHostKeyChecking=no user@your-remote-server "cd app && bundle exec rake db:migrate && bundle exec puma -p 80"
+            ssh -o StrictHostKeyChecking=no root@161.35.193.239 "cd app/book && docker-compose -f docker-compose.production.yml down && docker-compose up --build "

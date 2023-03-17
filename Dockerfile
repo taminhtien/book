@@ -1,15 +1,17 @@
-FROM ruby:3.1.2-slim-buster
+ARG RUBY_VERSION=3.2.0
 
-MAINTAINER taminhtien1993@gmail.com
+FROM ruby:$RUBY_VERSION-slim
 
-RUN apt-get update -qq --fix-missing \
-  && apt-get install -y build-essential libpq-dev libxml2-dev libxslt1-dev cron git curl \
-  && rm -rf /var/lib/apt/lists/* /tmp/*
+# Install dependencies
+RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git
 
-RUN curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+# Ensure node.js 19 is available for apt-get
+ARG NODE_MAJOR=19
+RUN curl -sL https://deb.nodesource.com/setup_$NODE_MAJOR.x | bash -
 
-RUN mkdir -p /app
-RUN mkdir -p /app/tmp/pids
+# Install node and yarn
+RUN apt-get update -qq && apt-get install -y nodejs && npm install -g yarn
+
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./

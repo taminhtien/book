@@ -15,6 +15,8 @@ services:
   web:
     extends: base
     command: bash -c "bundle exec rake db:migrate && bundle exec puma -p 80"
+    environment:
+      - SECRET_KEY_BASE=$SECRET_KEY_BASE
     volumes:
       - ./:/app
     ports:

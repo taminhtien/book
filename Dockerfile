@@ -12,6 +12,7 @@ WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler:2.3.1 && bundle install --jobs 20 --retry 5 --without test
+RUN rails assets:precompile
 
 # Set Rails to run in production
 ENV RAILS_ENV production

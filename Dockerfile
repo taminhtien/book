@@ -15,10 +15,14 @@ RUN apt-get update -qq && apt-get install -y nodejs && npm install -g yarn
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
+
 RUN gem install bundler
 RUN bundle update --bundler
 RUN bundle lock --add-platform x86_64-linux
 RUN bundle install
+
+COPY . ./
+
 RUN bundle exec rails assets:precompile
 
 # Set Rails to run in production

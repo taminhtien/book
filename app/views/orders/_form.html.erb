@@ -51,7 +51,7 @@
 
   <div class="mb-4">
     <%= form.label :bank_name, style: "display: block", class: 'text-white text-sm' %>
-    <%= form.text_field :bank_name, class: "w-full #{order.errors[:bank_name].present? ? 'border-red-500' : ''}" %>
+    <%= form.select :bank_name, options_for_select(banks), {}, { class: "w-full #{order.errors[:bank_name].present? ? 'border-red-500' : ''}" } %>
     <% if order.errors[:bank_name].present? %>
       <div class="text-red-500 text-sm">
         <%= order.errors.full_messages_for(:bank_name).first  %>

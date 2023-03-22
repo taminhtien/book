@@ -12,7 +12,7 @@ class Order < ApplicationRecord
   enum payment_status: { pending: 0, processing: 1, cancelled: 2, paid: 3 }
 
   def price
-    quantity * 339000
+    quantity * 1000
   end
 
   def currency

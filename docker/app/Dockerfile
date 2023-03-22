@@ -22,6 +22,7 @@ WORKDIR $RAILS_ROOT
 # Set Rails to run in production
 ENV RAILS_ENV production
 ENV RACK_ENV production
+ENV SECRET_KEY_BASE $SECRET_KEY_BASE
 
 COPY Gemfile Gemfile.lock ./
 
@@ -32,6 +33,8 @@ RUN bundle install
 
 COPY . ./
 
+RUN echo $RAILS_ENV
+RUN echo $SECRET_KEY_BASE
 RUN bundle exec rails assets:precompile
 
 

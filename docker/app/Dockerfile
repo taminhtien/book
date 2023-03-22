@@ -33,7 +33,3 @@ RUN bundle install
 COPY . ./
 
 RUN SECRET_KEY_BASE=1 bundle exec rails assets:precompile
-
-
-EXPOSE 3000
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

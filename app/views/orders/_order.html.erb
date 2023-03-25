@@ -31,6 +31,11 @@
     <%= order.bank_name %>
   </p>
 
+  <p class="pb-1">
+    <strong><%= t('.total') %>:</strong>
+    <%= number_to_currency(order.price, unit: "VNĐ", format: "%n %u", delimiter: ".", separator: ",", precision: 0) %>
+  </p>
+
   <p class="py-8 pb-4 text-center">
     <%= link_to 'Thanh toán', @checkout_url, class: 'w-full btn-primary uppercase py-4 bg-slate-500 text-white' %>
   </p>

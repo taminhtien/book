@@ -31,7 +31,7 @@
 
   <div class="mb-4">
     <%= form.label :quantity, style: "display: block", class: 'text-white text-sm' %>
-    <%= form.number_field :quantity, class: "w-full #{order.errors[:quantity].present? ? 'border-red-500' : ''}"  %>
+    <%= form.select :quantity, options_for_select([1, 2, 3, 4, 5]), {}, { class: "w-full #{order.errors[:quantity].present? ? 'border-red-500' : ''}" } %>
     <% if order.errors[:quantity].present? %>
       <div class="text-red-500 text-sm">
         <%= order.errors.full_messages_for(:quantity).first  %>
@@ -60,6 +60,6 @@
   </div>
 
   <div>
-    <%= form.submit t('.book_now'), class: 'w-full btn-primary uppercase py-4 bg-slate-500 text-white' %>
+    <%= form.button t('.book_now'), type: :submit, class: 'w-full btn-primary uppercase py-4 bg-slate-500 text-white' %>
   </div>
 <% end %>

@@ -17,8 +17,8 @@ class OrdersController < ApplicationController
         buyer_info: @order.buyer_info,
         order_description: @order.description,
         cancel_url: cancel_callback_checkout_url(order_code: @order.code),
-        return_url: return_callback_checkout_url(order_code: @order.code),
-        notify_url: notify_callback_checkout_url(order_code: @order.code),
+        return_url: return_callback_checkout_url,
+        notify_url: notify_callback_checkout_url,
       )
     end
   end

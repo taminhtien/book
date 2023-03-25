@@ -36,6 +36,14 @@ module NganLuong
 
         "#{config.checkout_url}?#{params.to_query}"
       end
+
+      def valid_return_request?(transaction_info, order_code, price, payment_id, payment_type, error_text, secure_code)
+        merchant_site_code = config.merchant_id
+        secure_pass = config.merchant_pass
+        verify_secure_code = ' ' + transaction_info + ' ' + order_code + ' ' + price + ' ' + payment_id + ' ' + payment_type + ' ' + error_text + ' ' + merchant_site_code + ' ' + secure_pass
+
+        Digest::MD5.hexdigest(verify_secure_code) == secure_code
+      end
     end
   end
 end

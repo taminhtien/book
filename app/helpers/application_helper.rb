@@ -3,6 +3,7 @@ module ApplicationHelper
     [
       "",
       "VCB - NH TMCP Ngoai Thuong Viet Nam",
+      "ACB - NH Thuong Mai Co Phan A Chau",
       "BIDV - NH TMCP Dau tu va Phat trien Viet Nam",
       "VIETBANK - NH TMCP Viet Nam Thuong Tin",
       "TCB - NH TMCP Ky thuong Viet Nam",
@@ -65,6 +66,6 @@ module ApplicationHelper
       "VRB - NH Lien Doanh Viet Nga",
       "Viettel Money - TCT DV so Viettel - CN Tap doan CN VT Quan doi",
       "WOO - NH Wooribank"
-    ]
+    ].sort
   end
 end

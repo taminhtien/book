@@ -13,7 +13,7 @@ RUN curl -sL https://deb.nodesource.com/setup_$NODE_MAJOR.x | bash -
 RUN apt-get update -qq && apt-get install -y nodejs && npm install -g yarn
 
 # Set an environment variable where the Rails app is installed to inside of Docker image:
-ENV RAILS_ROOT /var/www/book_purchase
+ENV RAILS_ROOT /app
 RUN mkdir -p $RAILS_ROOT
 
 # Set working directory, where the commands will be ran:
